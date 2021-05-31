@@ -8,15 +8,24 @@ public class Player : MonoBehaviour
     public float rotationSpeed = 360f;      // 360 degree per second
 
     CharacterController characterController;
+
+    Camera mainCam;
+    public float cameraDistance = 5f;
+    Vector3 camNormal = new Vector3(0f, 0.1f, -1f);
+
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+
+        mainCam = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
+        camNormal = camNormal.normalized;
+        mainCam.transform.position = transform.position + (camNormal * cameraDistance);
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         if(direction.sqrMagnitude > 0.01f)
         {
