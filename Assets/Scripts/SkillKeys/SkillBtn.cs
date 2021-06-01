@@ -7,6 +7,7 @@ public class SkillBtn : MonoBehaviour
 {
     public Image skillFilter;
     //public Text coolTimeCounter; //남은 쿨타임을 표시할 텍스트
+    public string inputKey = "1";
 
     public float coolTime;
 
@@ -18,7 +19,11 @@ public class SkillBtn : MonoBehaviour
     {
         skillFilter.fillAmount = 0; //처음에 스킬 버튼을 가리지 않음
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(inputKey))
+            UseSkill();
+    }
     public void UseSkill()
     {
         if (canUseSkill)
