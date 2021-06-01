@@ -11,15 +11,17 @@ public class SkillBtn : MonoBehaviour
 
     public float coolTime;
 
-    private float currentCoolTime; //남은 쿨타임을 추적 할 변수
+    public float currentCoolTime; //남은 쿨타임을 추적 할 변수
 
-    private bool canUseSkill = true; //스킬을 사용할 수 있는지 확인하는 변수
+    public bool canUseSkill = true; //스킬을 사용할 수 있는지 확인하는 변수
 
-    void start()
+    public bool fadeout = false; 
+
+    void Awake()
     {
         skillFilter.fillAmount = 0; //처음에 스킬 버튼을 가리지 않음
     }
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(inputKey))
             UseSkill();
@@ -55,7 +57,7 @@ public class SkillBtn : MonoBehaviour
         }
 
         canUseSkill = true; //스킬 쿨타임이 끝나면 스킬을 사용할 수 있는 상태로 바꿈
-
+        fadeout = true;
         yield break;
     }
 

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public enum skillKeys
 {
-    q, w, e, r,
-    a, s, d
+    s1, s2, s3, s4,
+    s5, s6, s7
 }
 public class KeyManager : MonoBehaviour
 {
