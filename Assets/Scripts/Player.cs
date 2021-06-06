@@ -7,15 +7,22 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5f;            // 5 unit per second
     public float rotationSpeed = 360f;      // 360 degree per second
 
-
+    Camera mainCam;
     public Transform characterModel;
     public Transform cameraArm;
-    
 
+
+    float camOffset;
+    public float minCamOffset = 1f;
+    public float maxCamOffset = 10f;
+
+    Vector3 offsetHeight = new Vector3(0f, 0.1f, 0f);
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCam = Camera.main;
+        camOffset = mainCam.transform.localPosition.magnitude;
+
     }
 
     // Update is called once per frame
@@ -71,6 +78,15 @@ public class Player : MonoBehaviour
                                                     camAngle.z);
 
         }
+        float wheelinput = Input.GetAxis("Mouse ScrollWheel");
+        if(wheelinput != 0)
+        {
+            camOffset -= wheelinput;
+            Mathf.Clamp(camOffset, minCamOffset, maxCamOffset);
+            Vector3 direction = mainCam.transform.position - (characterModel.position);
 
+            mainCam.transform.localPosition = direction.normalized * camOffset;
+        }
+        
     }
 }
