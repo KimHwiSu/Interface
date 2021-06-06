@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseBuff : MonoBehaviour
+public class baseBuff : MonoBehaviour
 {
     public string type;
     public float duration;
     public float currtime;
-    public Image icon; 
-    // Start is called before the first frame update
+    public Image icon;
+
     private void Awake()
     {
         icon = GetComponent<Image>();
@@ -24,17 +24,15 @@ public class BaseBuff : MonoBehaviour
 
         Execute();
     }
-
     WaitForSeconds seconds = new WaitForSeconds(0.1f);
+
     public void Execute()
     {
-        Debug.Log(PlayerData.instance.a);
-        PlayerData.instance.onbuff.Add(this);
-        PlayerData.instance.ChooseBuff(type);
+        BuffData.instance.onbuff.Add(this);
+        BuffData.instance.BuffChange();
         StartCoroutine(Active());
     }
 
-    
     IEnumerator Active()
     {
         while (currtime > 0)
@@ -50,8 +48,8 @@ public class BaseBuff : MonoBehaviour
 
     public void DeActive()
     {
-        PlayerData.instance.onbuff.Remove(this);
-        PlayerData.instance.ChooseBuff(type);
+        BuffData.instance.onbuff.Remove(this);
+        BuffData.instance.BuffChange();
         Destroy(gameObject);
     }
 }
