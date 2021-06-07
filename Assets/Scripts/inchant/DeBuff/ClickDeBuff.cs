@@ -8,6 +8,8 @@ public class ClickDeBuff : MonoBehaviour
     public float duration;
     public Sprite icon;
 
+    public AudioClip clip;
+
     public string inputKey = "";
 
     private void Update()
@@ -15,7 +17,11 @@ public class ClickDeBuff : MonoBehaviour
         if (Input.GetKeyDown(inputKey))
         {
             Click();
+
+            SoundMgr.instance.SFXPlay("DeBuff", clip);
         }
+
+     
     }
     public void Click()
     {
