@@ -2193,6 +2193,7 @@ MonoBehaviour:
   curCol: {r: 0, g: 0, b: 0, a: 0}
   SkillOn: 0
   WhatSkill: Skill2
+  scalesize: 0
 --- !u!114 &1068653272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2287,6 +2288,7 @@ MonoBehaviour:
   curCol: {r: 0, g: 0, b: 0, a: 0}
   SkillOn: 0
   WhatSkill: Skill1
+  scalesize: 0
 --- !u!114 &1107456768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2649,6 +2651,7 @@ MonoBehaviour:
   curCol: {r: 0, g: 0, b: 0, a: 0}
   SkillOn: 0
   WhatSkill: Skill3
+  scalesize: 0
 --- !u!114 &1405331658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3739,6 +3742,7 @@ MonoBehaviour:
   curCol: {r: 0, g: 0, b: 0, a: 0}
   SkillOn: 0
   WhatSkill: Skill4
+  scalesize: 0.8
 --- !u!114 &2046431675
 MonoBehaviour:
   m_ObjectHideFlags: 0

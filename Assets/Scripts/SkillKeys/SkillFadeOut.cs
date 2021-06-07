@@ -11,9 +11,11 @@ public class SkillFadeOut : MonoBehaviour
     public Color curCol;
     public bool SkillOn;
     public string WhatSkill;
+    public float scalesize;
     // Start is called before the first frame update
     void Start()
     {
+        scalesize = 1.0f;
         image = GetComponent<Image>();
         zero.a = 0;
         img = image.color;
@@ -36,6 +38,8 @@ public class SkillFadeOut : MonoBehaviour
             {
                 color.a -= Time.deltaTime;
                 curCol = color;
+                scalesize -= Time.deltaTime / 5;
+                transform.localScale = new Vector3(scalesize, scalesize, scalesize);
             }
             else
             {
