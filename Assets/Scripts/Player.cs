@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     {
         CamControl();
         Move();
+        SkillUse();
     }
 
     void Move()
@@ -93,6 +94,19 @@ public class Player : MonoBehaviour
 
             mainCam.transform.localPosition = direction.normalized * camOffset;
         }
+        
+    }
+    void SkillUse()
+    {
+        if (animator.GetBool("isSkill"))
+            return;
+
+        if(Input.GetKeyDown("1"))
+        {
+            Debug.Log("Use 1");
+            animator.SetBool("isSkill", true);
+        }
+
         
     }
 }
