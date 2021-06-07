@@ -17,12 +17,14 @@ public class Player : MonoBehaviour
     public float maxCamOffset = 10f;
 
     Vector3 offsetHeight = new Vector3(0f, 0.1f, 0f);
+
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         mainCam = Camera.main;
         camOffset = mainCam.transform.localPosition.magnitude;
-
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
         Debug.DrawRay(cameraArm.position, new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized, Color.red);
         if(isMove)
         {
+            animator.SetBool("isMove", true);
             Vector3 lookForward = new Vector3(cameraArm.forward.x, 0f, cameraArm.forward.z).normalized;
             Vector3 lookRight = new Vector3(cameraArm.right.x, 0f, cameraArm.right.z).normalized;
             Vector3 moveDir = lookForward * direction.z + lookRight * direction.x;
@@ -48,6 +51,9 @@ public class Player : MonoBehaviour
 
             transform.position += moveDir * Time.deltaTime * moveSpeed;
         }
+        else
+            animator.SetBool("isMove", false);
+
     }
 
     void CamControl()
