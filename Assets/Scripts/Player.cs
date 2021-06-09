@@ -92,7 +92,8 @@ public class Player : MonoBehaviour
             Mathf.Clamp(camOffset, minCamOffset, maxCamOffset);
             Vector3 direction = mainCam.transform.position - (characterModel.position);
 
-            mainCam.transform.localPosition = direction.normalized * camOffset;
+            mainCam.transform.position = cameraArm.position + direction.normalized * camOffset;
+            
         }
         
     }
@@ -106,7 +107,21 @@ public class Player : MonoBehaviour
             Debug.Log("Use 1");
             animator.SetBool("isSkill", true);
         }
+        else if (Input.GetKeyDown("2"))
+        {
+            Debug.Log("Use 2");
+            animator.SetBool("isSkill", true);
+        }
+        else if (Input.GetKeyDown("3"))
+        {
+            Debug.Log("Use 3");
+            animator.SetBool("isSkill", true);
+        }
+        else if (Input.GetKeyDown("4"))
+        {
+            Debug.Log("Use 4");
+            animator.SetBool("isSkill", true);
+        }
 
-        
     }
 }
