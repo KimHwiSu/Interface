@@ -18,7 +18,7 @@ public class ClickDeBuff : MonoBehaviour
         if (Input.GetKeyDown(inputKey))
         {
             Click();
-            sound = SoundMgr.instance.SFXPlay("DeBuff", clip);
+            
         }
 
         if (DeBuffData.instance.onDebuff.Count > 0)
@@ -44,5 +44,6 @@ public class ClickDeBuff : MonoBehaviour
     public void Click()
     {
         DeBuffMgr.instance.CreateDeBuff(type, duration, icon);
+        sound = SoundMgr.instance.SFXPlay("DeBuff", clip);
     }
 }
